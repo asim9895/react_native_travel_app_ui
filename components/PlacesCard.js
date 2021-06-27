@@ -5,66 +5,71 @@ import {
   View,
   ImageBackground,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 import colors from '../const/colors';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('screen');
-const PlacesCard = ({ place }) => {
+const PlacesCard = ({ place, navigation }) => {
   return (
-    <View style={styles.cardContainer}>
-      <ImageBackground style={styles.cardImage} source={place.image}>
-        <Text
-          style={{
-            color: colors.white,
-            padding: 10,
-            fontSize: 20,
-            fontWeight: 'bold',
-          }}>
-          {place.name}
-        </Text>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Details', place)}
+      activeOpacity={0.8}>
+      <View style={styles.cardContainer}>
+        <ImageBackground style={styles.cardImage} source={place.image}>
+          <Text
+            style={{
+              color: colors.white,
+              padding: 10,
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}>
+            {place.name}
+          </Text>
 
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-            flexDirection: 'row',
-            padding: 10,
-          }}>
           <View
             style={{
+              flex: 1,
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
               flexDirection: 'row',
-              alignItems: 'center',
+              padding: 10,
             }}>
-            <MaterialIcons name='place' size={22} color='white' />
-            <Text
+            <View
               style={{
-                color: colors.white,
-                marginLeft: 2,
-                fontWeight: 'bold',
+                flexDirection: 'row',
+                alignItems: 'center',
               }}>
-              {place.location}
-            </Text>
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <MaterialIcons name='star' size={24} color='white' />
-            <Text
+              <MaterialIcons name='place' size={22} color='white' />
+              <Text
+                style={{
+                  color: colors.white,
+                  marginLeft: 2,
+                  fontWeight: 'bold',
+                }}>
+                {place.location}
+              </Text>
+            </View>
+            <View
               style={{
-                color: colors.white,
-                marginLeft: 2,
-                fontWeight: 'bold',
+                flexDirection: 'row',
+                alignItems: 'center',
               }}>
-              5.0
-            </Text>
+              <MaterialIcons name='star' size={24} color='white' />
+              <Text
+                style={{
+                  color: colors.white,
+                  marginLeft: 2,
+                  fontWeight: 'bold',
+                }}>
+                5.0
+              </Text>
+            </View>
           </View>
-        </View>
-      </ImageBackground>
-    </View>
+        </ImageBackground>
+      </View>
+    </TouchableOpacity>
   );
 };
 
