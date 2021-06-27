@@ -24,7 +24,9 @@ const Onboarding = ({ navigation }) => {
             that plants, animals, and other features of the world develop of
             their own accord.
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Home')}
+            activeOpacity={0.8}>
             <View style={styles.button}>
               <Text style={styles.buttonText}>Get Started</Text>
             </View>
