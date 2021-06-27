@@ -103,7 +103,9 @@ const Home = ({ navigation }) => {
             contentContainerStyle={{ paddingLeft: 15 }}
             showsHorizontalScrollIndicator={false}
             horizontal
-            renderItem={({ item }) => <PlacesCard place={item} />}
+            renderItem={({ item }) => (
+              <PlacesCard place={item} navigation={navigation} />
+            )}
           />
         </View>
         <View style={{ marginHorizontal: 20, marginTop: 10, marginBottom: 5 }}>

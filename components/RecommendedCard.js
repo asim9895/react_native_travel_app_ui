@@ -14,7 +14,7 @@ const { width } = Dimensions.get('screen');
 const RecommendedCard = ({ place, navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('Details')}
+      onPress={() => navigation.navigate('Details', place)}
       activeOpacity={0.8}>
       <View style={styles.cardContainer}>
         <ImageBackground style={styles.cardImage} source={place.image}>
